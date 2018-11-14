@@ -4,7 +4,7 @@ This example demonstrates how to create a custom color scheme for the <a href="h
 
 The following two CSS classes are included in web pages and provide color scheme customization:
 
-1. The **devextreme.light.custom.css** file contains changed CSS styles for <a href="https://docs.devexpress.com/XtraReports/17738/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/document-viewer/html5-document-viewer">DevExtreme</a> UI widgets that reporting controls internally use.
+1. The **devextreme.light.custom.css** file contains changed CSS styles for <a href="https://js.devexpress.com/">DevExtreme</a> UI widgets that reporting controls internally use.
 
 2. The **reporting.light.custom.css** file contains changed CSS styles (grouped by categories) that define the common appearance of reporting controls.
 
