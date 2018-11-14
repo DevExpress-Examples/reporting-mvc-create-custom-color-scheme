@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="WebReportingCustomColorScheme.Global_asax" Language="C#" %>
