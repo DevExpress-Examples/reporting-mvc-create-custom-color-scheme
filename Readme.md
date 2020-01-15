@@ -1,19 +1,37 @@
-# How to create a custom color scheme for web reporting controls
+<!-- default file list -->
+*Files to look at*:
+* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml) (VB: [_Layout.vbhtml](./VB/WebReportingCustomColorScheme/Views/Shared/_Layout.vbhtml))
+* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml) (VB: [Viewer.vbhtml](./VB/WebReportingCustomColorScheme/Views/Home/Viewer.vbhtml))
+* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml) (VB: [Designer.vbhtml](./VB/WebReportingCustomColorScheme/Views/Home/Designer.vbhtml))
+* [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
+* [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
+<!-- default file list end -->
 
-This example demonstrates how to create a custom color scheme for the <a href="https://docs.devexpress.com/XtraReports/17738/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/document-viewer/html5-document-viewer">Web Document Viewer</a> and <a href="https://docs.devexpress.com/XtraReports/17103/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/end-user-report-designer">End-User Report Designer</a> based on the "**light**" predefined color scheme.
+# How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
 
-The following two CSS classes are included in web pages and provide color scheme customization:
+This example demonstrates how to create a custom color scheme for the [Web Document Viewer](https://docs.devexpress.com/XtraReports/17738) and [End-User Report Designer](https://docs.devexpress.com/XtraReports/17103). The custom color scheme is based on the "_light_" predefined color scheme.
 
-1. The **devextreme.light.custom.css** file contains changed CSS styles for <a href="https://js.devexpress.com/">DevExtreme</a> UI widgets that reporting controls internally use.
+This example is an **ASP.NET MVC application**. However, the approach used to customize the color scheme is the same for all Web platforms.
 
-2. The **reporting.light.custom.css** file contains changed CSS styles (grouped by categories) that define the common appearance of reporting controls.
+![](/images/screenshot.png)
 
+The **Color Scheme Customization** online demo is used to customize a color scheme and save the result. Online demos are available for different platforms:
 
-**See Also**
+* [ASP.NET WebForms Online Demo](https://demos.devexpress.com/xtrareportsdemos/WebSpecificFeatures/ColorSchemeCustomization.aspx)
+* [ASP.NET MVC Online Demo](https://demos.devexpress.com/MVCxReportDemos/WebSpecificFeatures/ColorSchemeCustomization)
+* [ASP.NET Core Online Demo](https://demos.devexpress.com/ASPNetCore/Demo/Reporting/ColorSchemeCustomization)
 
-Refer to our documentation topics for more information. Use the **Color Scheme Customization** online demos to create your own color scheme.
+The demo produces custom styles in two files - _devextreme.light.custom.css_ and _reporting.light.custom.css_. Copy these files to the application's **Content** folder.
 
-| ASP.NET WebForms | ASP.NET MVC | ASP.NET Core|
-|---|---|---|
-| <a href="https://docs.devexpress.com/XtraReports/116672/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/document-viewer/html5-document-viewer/api-and-customization/customize-the-color-scheme">Documentation</a> | <a href="https://docs.devexpress.com/XtraReports/400235/create-end-user-reporting-applications/web-reporting/asp-net-mvc-reporting/document-viewer/html5-document-viewer/api-and-customization/customize-the-color-scheme">Documentation</a> | <a href="https://docs.devexpress.com/XtraReports/400413/create-end-user-reporting-applications/web-reporting/asp-net-core-reporting/document-viewer/api-and-customization/customize-the-color-scheme">Documentation</a>|
-| <a href="https://demos.devexpress.com/xtrareportsdemos/WebSpecificFeatures/ColorSchemeCustomization.aspx">Online Demo</a> | <a href="https://demos.devexpress.com/MVCxReportDemos/WebSpecificFeatures/ColorSchemeCustomization">Online Demo</a> | <a href="https://demos.devexpress.com/ASPNetCore/Demo/Reporting/ColorSchemeCustomization/">Online Demo</a> |
+* The **devextreme.light.custom.css** file contains changed CSS styles for <a href="https://js.devexpress.com/">DevExtreme</a> UI widgets that reporting controls internally use.
+
+* The **reporting.light.custom.css** file contains changed CSS styles (grouped by categories) that define the common appearance of reporting controls.
+
+Specify the base color scheme with the [GetStyleSheets](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.UI.ExtensionsFactory.GetStyleSheets.overloads) method and link the reporting and DevExtreme CSS files to the Document Viewer and Report Designer pages.
+
+**See also:**
+
+* [ASP.NET Webforms Documentation](https://docs.devexpress.com/XtraReports/116672)
+* [ASP.NET MVC Documentation](https://docs.devexpress.com/XtraReports/400235)
+* [ASP.NET Core Documentation](https://docs.devexpress.com/XtraReports/400413)
+

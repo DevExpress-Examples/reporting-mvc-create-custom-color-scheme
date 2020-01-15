@@ -1,36 +1,44 @@
 using System;
-using DevExpress.XtraReports.Web;
+using System.Collections.Generic;
+using System.Linq;
+using System.IO;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using System.Web.Routing;
+            
+using DevExpress.Web.Mvc;
+using WebReportingCustomColorScheme.Services;
 
 namespace WebReportingCustomColorScheme {
-    public class Global_asax : System.Web.HttpApplication {
-        void Application_Start(object sender, EventArgs e) {
-            System.Web.Routing.RouteTable.Routes.MapPageRoute("defaultRoute", "", "~/Default.aspx");
+    // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
+    // visit http://go.microsoft.com/?LinkId=9394801
+
+    public class MvcApplication : System.Web.HttpApplication {
+        protected void Application_Start() {
             DevExpress.XtraReports.Configuration.Settings.Default.UserDesignerOptions.DataBindingMode = DevExpress.XtraReports.UI.DataBindingMode.Expressions;
             DevExpress.XtraReports.Web.WebDocumentViewer.Native.WebDocumentViewerBootstrapper.SessionState = System.Web.SessionState.SessionStateBehavior.Default;
             DevExpress.XtraReports.Web.QueryBuilder.Native.QueryBuilderBootstrapper.SessionState = System.Web.SessionState.SessionStateBehavior.Default;
             DevExpress.XtraReports.Web.ReportDesigner.Native.ReportDesignerBootstrapper.SessionState = System.Web.SessionState.SessionStateBehavior.Default;
-            ASPxReportDesigner.StaticInitialize();
+            DevExpress.XtraReports.Web.Extensions.ReportStorageWebExtension.RegisterExtensionGlobal(new ReportStorageWebExtension1(Server.MapPath("/Reports")));
 
-            DevExpress.Web.ASPxWebControl.CallbackError += new EventHandler(Application_Error);
+            System.Net.ServicePointManager.SecurityProtocol |= System.Net.SecurityProtocolType.Tls12;
+            MVCxReportDesigner.StaticInitialize();
+
+            AreaRegistration.RegisterAllAreas();
+
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+            
+            ModelBinders.Binders.DefaultBinder = new DevExpress.Web.Mvc.DevExpressEditorsBinder();
+
+            DevExpress.Web.ASPxWebControl.CallbackError += Application_Error;
         }
 
-        void Application_End(object sender, EventArgs e) {
-            // Code that runs on application shutdown
-        }
-    
-        void Application_Error(object sender, EventArgs e) {
-            // Code that runs when an unhandled error occurs
-        }
-    
-        void Session_Start(object sender, EventArgs e) {
-            // Code that runs when a new session is started
-        }
-    
-        void Session_End(object sender, EventArgs e) {
-            // Code that runs when a session ends. 
-            // Note: The Session_End event is raised only when the sessionstate mode
-            // is set to InProc in the Web.config file. If session mode is set to StateServer 
-            // or SQLServer, the event is not raised.
+        protected void Application_Error(object sender, EventArgs e) {
+            Exception exception = System.Web.HttpContext.Current.Server.GetLastError();
+            //TODO: Handle Exception
         }
     }
 }

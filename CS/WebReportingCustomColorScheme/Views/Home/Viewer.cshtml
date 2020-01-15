@@ -1,0 +1,6 @@
+<link rel="stylesheet" href="@Url.Content("~/Content/devextreme.light.custom.css")" type="text/css" />
+<link rel="stylesheet" href="@Url.Content("~/Content/reporting.light.custom.css")" type="text/css" />
+
+@Html.DevExpress().WebDocumentViewer(settings => {
+    settings.Name = "WebDocumentViewer1";
+}).Bind(new TestReport()).GetHtml()
