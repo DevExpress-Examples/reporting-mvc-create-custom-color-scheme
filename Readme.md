@@ -1,4 +1,7 @@
 # How to create a custom color scheme for web reporting controls
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/180366629/)**
+<!-- run online end -->
 
 This example demonstrates how to create a custom color scheme for the <a href="https://docs.devexpress.com/XtraReports/17738/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/document-viewer/html5-document-viewer">Web Document Viewer</a> and <a href="https://docs.devexpress.com/XtraReports/17103/create-end-user-reporting-applications/web-reporting/asp-net-webforms-reporting/end-user-report-designer">End-User Report Designer</a> based on the "**light**" predefined color scheme.
 
