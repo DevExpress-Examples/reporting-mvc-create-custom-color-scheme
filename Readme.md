@@ -1,8 +1,8 @@
 <!-- default file list -->
 *Files to look at*:
-* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml) (VB: [_Layout.vbhtml](./VB/WebReportingCustomColorScheme/Views/Shared/_Layout.vbhtml))
-* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml) (VB: [Viewer.vbhtml](./VB/WebReportingCustomColorScheme/Views/Home/Viewer.vbhtml))
-* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml) (VB: [Designer.vbhtml](./VB/WebReportingCustomColorScheme/Views/Home/Designer.vbhtml))
+* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml)
+* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml)
+* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml)
 * [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
 * [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
 <!-- default file list end -->
