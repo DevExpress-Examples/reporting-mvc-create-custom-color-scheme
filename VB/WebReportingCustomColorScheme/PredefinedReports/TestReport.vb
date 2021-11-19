@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Drawing
 Imports System.Collections
 Imports System.ComponentModel
@@ -10,29 +10,50 @@ Imports DevExpress.XtraReports.UI
 Public Class TestReport
 	Inherits DevExpress.XtraReports.UI.XtraReport
 
-	Private ReportHeader As ReportHeaderBand
-	Private xrLabel2 As XRLabel
-	Private GroupHeader1 As GroupHeaderBand
-	Private xrTable2 As XRTable
-	Private lbCategory As XRLabel
-	Private xrTableRow2 As XRTableRow
-	Private xrTableCell1 As XRTableCell
-	Private Detail As DetailBand
-	Private xrTable1 As XRTable
-	Private xrTableRow1 As XRTableRow
-	Private xrTableCell4 As XRTableCell
-	Private xrTableCell5 As XRTableCell
-	Private xrTableCell6 As XRTableCell
-	Private xrTableCell2 As XRTableCell
-	Private xrTableCell3 As XRTableCell
-	Private BottomMargin As BottomMarginBand
-	Private xrPageInfo1 As XRPageInfo
-	Private topMarginBand1 As TopMarginBand
-	Private sqlDataSource1 As DevExpress.DataAccess.Sql.SqlDataSource
 	Private EvenStyle As XRControlStyle
 	Private OddStyle As XRControlStyle
 	Private HeaderStyle2 As XRControlStyle
 	Private HeaderStyle1 As XRControlStyle
+	Private jsonDataSource1 As DevExpress.DataAccess.Json.JsonDataSource
+	Private TopMargin As TopMarginBand
+	Private BottomMargin As BottomMarginBand
+	Private pageInfo1 As XRPageInfo
+	Private pageInfo2 As XRPageInfo
+	Private ReportHeader As ReportHeaderBand
+	Private label1 As XRLabel
+	Private GroupHeader1 As GroupHeaderBand
+	Private table1 As XRTable
+	Private tableRow1 As XRTableRow
+	Private tableCell1 As XRTableCell
+	Private tableCell2 As XRTableCell
+	Private GroupHeader2 As GroupHeaderBand
+	Private table2 As XRTable
+	Private tableRow2 As XRTableRow
+	Private tableCell3 As XRTableCell
+	Private tableCell4 As XRTableCell
+	Private tableCell5 As XRTableCell
+	Private tableCell6 As XRTableCell
+	Private tableCell7 As XRTableCell
+	Private tableCell8 As XRTableCell
+	Private Detail As DetailBand
+	Private table3 As XRTable
+	Private tableRow3 As XRTableRow
+	Private tableCell9 As XRTableCell
+	Private tableCell10 As XRTableCell
+	Private tableCell11 As XRTableCell
+	Private tableCell12 As XRTableCell
+	Private tableCell13 As XRTableCell
+	Private tableCell14 As XRTableCell
+	Private GroupFooter1 As GroupFooterBand
+	Private label2 As XRLabel
+	Private Title As XRControlStyle
+	Private GroupCaption1 As XRControlStyle
+	Private GroupData1 As XRControlStyle
+	Private DetailCaption1 As XRControlStyle
+	Private DetailData1 As XRControlStyle
+	Private GroupFooterBackground3 As XRControlStyle
+	Private DetailData3_Odd As XRControlStyle
+	Private PageInfo As XRControlStyle
 
 	''' <summary>
 	''' Required designer variable.
@@ -65,240 +86,68 @@ Public Class TestReport
 	''' </summary>
 	Private Sub InitializeComponent()
 			Me.components = New System.ComponentModel.Container()
-			Dim selectQuery1 As New DevExpress.DataAccess.Sql.SelectQuery()
-			Dim column1 As New DevExpress.DataAccess.Sql.Column()
-			Dim columnExpression1 As New DevExpress.DataAccess.Sql.ColumnExpression()
-			Dim table1 As New DevExpress.DataAccess.Sql.Table()
-			Dim column2 As New DevExpress.DataAccess.Sql.Column()
-			Dim columnExpression2 As New DevExpress.DataAccess.Sql.ColumnExpression()
-			Dim table2 As New DevExpress.DataAccess.Sql.Table()
-			Dim column3 As New DevExpress.DataAccess.Sql.Column()
-			Dim columnExpression3 As New DevExpress.DataAccess.Sql.ColumnExpression()
-			Dim column4 As New DevExpress.DataAccess.Sql.Column()
-			Dim columnExpression4 As New DevExpress.DataAccess.Sql.ColumnExpression()
-			Dim join1 As New DevExpress.DataAccess.Sql.Join()
-			Dim relationColumnInfo1 As New DevExpress.DataAccess.Sql.RelationColumnInfo()
-			Dim resources As New System.ComponentModel.ComponentResourceManager(GetType(TestReport))
-			Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand()
-			Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand()
-			Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
-			Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
-			Me.topMarginBand1 = New DevExpress.XtraReports.UI.TopMarginBand()
-			Me.xrLabel2 = New DevExpress.XtraReports.UI.XRLabel()
-			Me.xrTable2 = New DevExpress.XtraReports.UI.XRTable()
-			Me.lbCategory = New DevExpress.XtraReports.UI.XRLabel()
-			Me.xrTableRow2 = New DevExpress.XtraReports.UI.XRTableRow()
-			Me.xrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrTableCell2 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrTableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrTable1 = New DevExpress.XtraReports.UI.XRTable()
-			Me.xrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
-			Me.xrTableCell4 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrTableCell5 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrTableCell6 = New DevExpress.XtraReports.UI.XRTableCell()
-			Me.xrPageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
-			Me.sqlDataSource1 = New DevExpress.DataAccess.Sql.SqlDataSource(Me.components)
+			Dim uriJsonSource1 As New DevExpress.DataAccess.Json.UriJsonSource()
+			Dim jsonSchemaNode1 As New DevExpress.DataAccess.Json.JsonSchemaNode("root", True)
+			Dim jsonSchemaNode2 As New DevExpress.DataAccess.Json.JsonSchemaNode("Customers", True, DevExpress.DataAccess.Json.JsonNodeType.Array)
+			Dim jsonSchemaNode3 As New DevExpress.DataAccess.Json.JsonSchemaNode("Id", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode4 As New DevExpress.DataAccess.Json.JsonSchemaNode("CompanyName", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode5 As New DevExpress.DataAccess.Json.JsonSchemaNode("ContactName", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode6 As New DevExpress.DataAccess.Json.JsonSchemaNode("ContactTitle", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode7 As New DevExpress.DataAccess.Json.JsonSchemaNode("Address", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode8 As New DevExpress.DataAccess.Json.JsonSchemaNode("City", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode9 As New DevExpress.DataAccess.Json.JsonSchemaNode("PostalCode", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode10 As New DevExpress.DataAccess.Json.JsonSchemaNode("Country", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode11 As New DevExpress.DataAccess.Json.JsonSchemaNode("Phone", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode12 As New DevExpress.DataAccess.Json.JsonSchemaNode("Fax", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
+			Dim jsonSchemaNode13 As New DevExpress.DataAccess.Json.JsonSchemaNode("Region", True, DevExpress.DataAccess.Json.JsonNodeType.Property, GetType(String))
 			Me.EvenStyle = New DevExpress.XtraReports.UI.XRControlStyle()
 			Me.OddStyle = New DevExpress.XtraReports.UI.XRControlStyle()
 			Me.HeaderStyle2 = New DevExpress.XtraReports.UI.XRControlStyle()
 			Me.HeaderStyle1 = New DevExpress.XtraReports.UI.XRControlStyle()
-			DirectCast(Me.xrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
-			DirectCast(Me.xrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
+			Me.jsonDataSource1 = New DevExpress.DataAccess.Json.JsonDataSource(Me.components)
+			Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
+			Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
+			Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand()
+			Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand()
+			Me.GroupHeader2 = New DevExpress.XtraReports.UI.GroupHeaderBand()
+			Me.Detail = New DevExpress.XtraReports.UI.DetailBand()
+			Me.GroupFooter1 = New DevExpress.XtraReports.UI.GroupFooterBand()
+			Me.pageInfo1 = New DevExpress.XtraReports.UI.XRPageInfo()
+			Me.pageInfo2 = New DevExpress.XtraReports.UI.XRPageInfo()
+			Me.label1 = New DevExpress.XtraReports.UI.XRLabel()
+			Me.table1 = New DevExpress.XtraReports.UI.XRTable()
+			Me.tableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
+			Me.tableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell2 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.table2 = New DevExpress.XtraReports.UI.XRTable()
+			Me.tableRow2 = New DevExpress.XtraReports.UI.XRTableRow()
+			Me.tableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell4 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell5 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell6 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell7 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.table3 = New DevExpress.XtraReports.UI.XRTable()
+			Me.tableRow3 = New DevExpress.XtraReports.UI.XRTableRow()
+			Me.tableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell11 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell12 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell13 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.tableCell14 = New DevExpress.XtraReports.UI.XRTableCell()
+			Me.label2 = New DevExpress.XtraReports.UI.XRLabel()
+			Me.Title = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.GroupCaption1 = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.GroupData1 = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.DetailCaption1 = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.DetailData1 = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.GroupFooterBackground3 = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.DetailData3_Odd = New DevExpress.XtraReports.UI.XRControlStyle()
+			Me.PageInfo = New DevExpress.XtraReports.UI.XRControlStyle()
+			DirectCast(Me.table1, System.ComponentModel.ISupportInitialize).BeginInit()
+			DirectCast(Me.table2, System.ComponentModel.ISupportInitialize).BeginInit()
+			DirectCast(Me.table3, System.ComponentModel.ISupportInitialize).BeginInit()
 			DirectCast(Me, System.ComponentModel.ISupportInitialize).BeginInit()
-			' 
-			' ReportHeader
-			' 
-			Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.xrLabel2})
-			Me.ReportHeader.HeightF = 67F
-			Me.ReportHeader.Name = "ReportHeader"
-			Me.ReportHeader.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F)
-			Me.ReportHeader.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-			' 
-			' GroupHeader1
-			' 
-			Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.xrTable2, Me.lbCategory})
-			Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() { New DevExpress.XtraReports.UI.GroupField("CategoryID", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-			Me.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail
-			Me.GroupHeader1.HeightF = 75F
-			Me.GroupHeader1.Name = "GroupHeader1"
-			Me.GroupHeader1.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F)
-			Me.GroupHeader1.RepeatEveryPage = True
-			' 
-			' Detail
-			' 
-			Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.xrTable1})
-			Me.Detail.HeightF = 27F
-			Me.Detail.Name = "Detail"
-			Me.Detail.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F)
-			Me.Detail.SortFields.AddRange(New DevExpress.XtraReports.UI.GroupField() { New DevExpress.XtraReports.UI.GroupField("CategoryName", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
-			Me.Detail.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-			' 
-			' BottomMargin
-			' 
-			Me.BottomMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.xrPageInfo1})
-			Me.BottomMargin.HeightF = 85F
-			Me.BottomMargin.Name = "BottomMargin"
-			Me.BottomMargin.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F)
-			Me.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-			' 
-			' topMarginBand1
-			' 
-			Me.topMarginBand1.Name = "topMarginBand1"
-			' 
-			' xrLabel2
-			' 
-			Me.xrLabel2.Font = New System.Drawing.Font("Tahoma", 21.75F)
-			Me.xrLabel2.ForeColor = System.Drawing.Color.Black
-			Me.xrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(21F, 2F)
-			Me.xrLabel2.Name = "xrLabel2"
-			Me.xrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F)
-			Me.xrLabel2.SizeF = New System.Drawing.SizeF(608F, 64F)
-			Me.xrLabel2.StylePriority.UseBackColor = False
-			Me.xrLabel2.Text = "Product List by Category"
-			Me.xrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
-			' 
-			' xrTable2
-			' 
-			Me.xrTable2.BookmarkParent = Me.lbCategory
-			Me.xrTable2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Bookmark", "[ProductName]")})
-			Me.xrTable2.LocationFloat = New DevExpress.Utils.PointFloat(21F, 48F)
-			Me.xrTable2.Name = "xrTable2"
-			Me.xrTable2.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() { Me.xrTableRow2})
-			Me.xrTable2.SizeF = New System.Drawing.SizeF(608F, 27F)
-			Me.xrTable2.StyleName = "HeaderStyle2"
-			' 
-			' lbCategory
-			' 
-			Me.lbCategory.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {
-				New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CategoryName]"),
-				New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Bookmark", "[CategoryName]")
-			})
-			Me.lbCategory.InteractiveSorting.FieldName = "CategoryID"
-			Me.lbCategory.InteractiveSorting.TargetBand = Me.GroupHeader1
-			Me.lbCategory.LocationFloat = New DevExpress.Utils.PointFloat(21F, 8F)
-			Me.lbCategory.Name = "lbCategory"
-			Me.lbCategory.SizeF = New System.Drawing.SizeF(608F, 32F)
-			Me.lbCategory.StyleName = "HeaderStyle1"
-			' 
-			' xrTableRow2
-			' 
-			Me.xrTableRow2.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() { Me.xrTableCell1, Me.xrTableCell2, Me.xrTableCell3})
-			Me.xrTableRow2.EvenStyleName = "EvenStyle"
-			Me.xrTableRow2.Name = "xrTableRow2"
-			Me.xrTableRow2.OddStyleName = "OddStyle"
-			Me.xrTableRow2.Weight = 1R
-			' 
-			' xrTableCell1
-			' 
-			Me.xrTableCell1.InteractiveSorting.FieldName = "ProductName"
-			Me.xrTableCell1.InteractiveSorting.TargetBand = Me.Detail
-			Me.xrTableCell1.Name = "xrTableCell1"
-			Me.xrTableCell1.Text = "Product Name"
-			Me.xrTableCell1.Weight = 0.34539473684210525R
-			' 
-			' xrTableCell2
-			' 
-			Me.xrTableCell2.Name = "xrTableCell2"
-			Me.xrTableCell2.Text = "Quantity Per Unit"
-			Me.xrTableCell2.Weight = 0.48848684210526316R
-			' 
-			' xrTableCell3
-			' 
-			Me.xrTableCell3.InteractiveSorting.FieldName = "UnitPrice"
-			Me.xrTableCell3.InteractiveSorting.TargetBand = Me.Detail
-			Me.xrTableCell3.Name = "xrTableCell3"
-			Me.xrTableCell3.Text = "Unit Price"
-			Me.xrTableCell3.Weight = 0.16611842105263158R
-			' 
-			' xrTable1
-			' 
-			Me.xrTable1.BookmarkParent = Me.lbCategory
-			Me.xrTable1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Bookmark", "[ProductName]")})
-			Me.xrTable1.LocationFloat = New DevExpress.Utils.PointFloat(21F, 0F)
-			Me.xrTable1.Name = "xrTable1"
-			Me.xrTable1.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() { Me.xrTableRow1})
-			Me.xrTable1.SizeF = New System.Drawing.SizeF(608F, 27F)
-			Me.xrTable1.StylePriority.UseBorders = False
-			' 
-			' xrTableRow1
-			' 
-			Me.xrTableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() { Me.xrTableCell4, Me.xrTableCell5, Me.xrTableCell6})
-			Me.xrTableRow1.EvenStyleName = "EvenStyle"
-			Me.xrTableRow1.Name = "xrTableRow1"
-			Me.xrTableRow1.OddStyleName = "OddStyle"
-			Me.xrTableRow1.StyleName = "EvenStyle"
-			Me.xrTableRow1.Weight = 1R
-			' 
-			' xrTableCell4
-			' 
-			Me.xrTableCell4.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ProductName]")})
-			Me.xrTableCell4.Name = "xrTableCell4"
-			Me.xrTableCell4.Text = "xrTableCell4"
-			Me.xrTableCell4.Weight = 0.34539473684210525R
-			' 
-			' xrTableCell5
-			' 
-			Me.xrTableCell5.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[QuantityPerUnit]")})
-			Me.xrTableCell5.Name = "xrTableCell5"
-			Me.xrTableCell5.Text = "xrTableCell5"
-			Me.xrTableCell5.Weight = 0.48848684210526316R
-			' 
-			' xrTableCell6
-			' 
-			Me.xrTableCell6.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[UnitPrice]")})
-			Me.xrTableCell6.Name = "xrTableCell6"
-			Me.xrTableCell6.Padding = New DevExpress.XtraPrinting.PaddingInfo(0, 8, 0, 0, 100F)
-			Me.xrTableCell6.StylePriority.UseTextAlignment = False
-			Me.xrTableCell6.Text = "xrTableCell6"
-			Me.xrTableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight
-			Me.xrTableCell6.TextFormatString = "{0:$0.00}"
-			Me.xrTableCell6.Weight = 0.16611842105263158R
-			' 
-			' xrPageInfo1
-			' 
-			Me.xrPageInfo1.Font = New System.Drawing.Font("Tahoma", 8.25F)
-			Me.xrPageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(534F, 7F)
-			Me.xrPageInfo1.Name = "xrPageInfo1"
-			Me.xrPageInfo1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F)
-			Me.xrPageInfo1.SizeF = New System.Drawing.SizeF(98F, 17F)
-			Me.xrPageInfo1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
-			Me.xrPageInfo1.TextFormatString = "Page : {0} / {1}"
-			' 
-			' sqlDataSource1
-			' 
-			Me.sqlDataSource1.ConnectionName = "NWindConnectionString"
-			Me.sqlDataSource1.Name = "sqlDataSource1"
-			columnExpression1.ColumnName = "CategoryName"
-			table1.MetaSerializable = "<Meta X=""30"" Y=""30"" Width=""125"" Height=""134"" />"
-			table1.Name = "Categories"
-			columnExpression1.Table = table1
-			column1.Expression = columnExpression1
-			columnExpression2.ColumnName = "ProductName"
-			table2.MetaSerializable = "<Meta X=""185"" Y=""30"" Width=""125"" Height=""267"" />"
-			table2.Name = "Products"
-			columnExpression2.Table = table2
-			column2.Expression = columnExpression2
-			columnExpression3.ColumnName = "QuantityPerUnit"
-			columnExpression3.Table = table2
-			column3.Expression = columnExpression3
-			columnExpression4.ColumnName = "UnitPrice"
-			columnExpression4.Table = table2
-			column4.Expression = columnExpression4
-			selectQuery1.Columns.Add(column1)
-			selectQuery1.Columns.Add(column2)
-			selectQuery1.Columns.Add(column3)
-			selectQuery1.Columns.Add(column4)
-			selectQuery1.Name = "ProductsByCategories"
-			relationColumnInfo1.NestedKeyColumn = "CategoryID"
-			relationColumnInfo1.ParentKeyColumn = "CategoryID"
-			join1.KeyColumns.Add(relationColumnInfo1)
-			join1.Nested = table2
-			join1.Parent = table1
-			selectQuery1.Relations.Add(join1)
-			selectQuery1.Tables.Add(table1)
-			selectQuery1.Tables.Add(table2)
-			Me.sqlDataSource1.Queries.AddRange(New DevExpress.DataAccess.Sql.SqlQuery() { selectQuery1})
-			Me.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable")
 			' 
 			' EvenStyle
 			' 
@@ -339,21 +188,349 @@ Public Class TestReport
 			Me.HeaderStyle1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F)
 			Me.HeaderStyle1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
 			' 
+			' jsonDataSource1
+			' 
+			Me.jsonDataSource1.ConnectionName = "JsonConnection 1"
+			uriJsonSource1.Uri = New System.Uri("https://raw.githubusercontent.com/DevExpress-Examples/DataSources/master/JSON/cus" & "tomers.json", System.UriKind.Absolute)
+			Me.jsonDataSource1.JsonSource = uriJsonSource1
+			Me.jsonDataSource1.Name = "jsonDataSource1"
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode3)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode4)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode5)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode6)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode7)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode8)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode9)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode10)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode11)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode12)
+			jsonSchemaNode2.Nodes.Add(jsonSchemaNode13)
+			jsonSchemaNode1.Nodes.Add(jsonSchemaNode2)
+			Me.jsonDataSource1.Schema = jsonSchemaNode1
+			' 
+			' TopMargin
+			' 
+			Me.TopMargin.Name = "TopMargin"
+			' 
+			' BottomMargin
+			' 
+			Me.BottomMargin.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.pageInfo1, Me.pageInfo2})
+			Me.BottomMargin.Name = "BottomMargin"
+			' 
+			' ReportHeader
+			' 
+			Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.label1})
+			Me.ReportHeader.HeightF = 60F
+			Me.ReportHeader.Name = "ReportHeader"
+			' 
+			' GroupHeader1
+			' 
+			Me.GroupHeader1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.table1})
+			Me.GroupHeader1.GroupFields.AddRange(New DevExpress.XtraReports.UI.GroupField() { New DevExpress.XtraReports.UI.GroupField("Country", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)})
+			Me.GroupHeader1.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail
+			Me.GroupHeader1.HeightF = 27F
+			Me.GroupHeader1.Level = 1
+			Me.GroupHeader1.Name = "GroupHeader1"
+			' 
+			' GroupHeader2
+			' 
+			Me.GroupHeader2.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.table2})
+			Me.GroupHeader2.GroupUnion = DevExpress.XtraReports.UI.GroupUnion.WithFirstDetail
+			Me.GroupHeader2.HeightF = 28F
+			Me.GroupHeader2.Level = 2
+			Me.GroupHeader2.Name = "GroupHeader2"
+			' 
+			' Detail
+			' 
+			Me.Detail.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.table3})
+			Me.Detail.HeightF = 25F
+			Me.Detail.Name = "Detail"
+			' 
+			' GroupFooter1
+			' 
+			Me.GroupFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() { Me.label2})
+			Me.GroupFooter1.GroupUnion = DevExpress.XtraReports.UI.GroupFooterUnion.WithLastDetail
+			Me.GroupFooter1.HeightF = 6F
+			Me.GroupFooter1.Name = "GroupFooter1"
+			' 
+			' pageInfo1
+			' 
+			Me.pageInfo1.LocationFloat = New DevExpress.Utils.PointFloat(0F, 0F)
+			Me.pageInfo1.Name = "pageInfo1"
+			Me.pageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime
+			Me.pageInfo1.SizeF = New System.Drawing.SizeF(325F, 23F)
+			Me.pageInfo1.StyleName = "PageInfo"
+			' 
+			' pageInfo2
+			' 
+			Me.pageInfo2.LocationFloat = New DevExpress.Utils.PointFloat(325F, 0F)
+			Me.pageInfo2.Name = "pageInfo2"
+			Me.pageInfo2.SizeF = New System.Drawing.SizeF(325F, 23F)
+			Me.pageInfo2.StyleName = "PageInfo"
+			Me.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight
+			Me.pageInfo2.TextFormatString = "Page {0} of {1}"
+			' 
+			' label1
+			' 
+			Me.label1.LocationFloat = New DevExpress.Utils.PointFloat(0F, 0F)
+			Me.label1.Name = "label1"
+			Me.label1.SizeF = New System.Drawing.SizeF(650F, 24.19433F)
+			Me.label1.StyleName = "Title"
+			Me.label1.Text = "Customers"
+			' 
+			' table1
+			' 
+			Me.table1.LocationFloat = New DevExpress.Utils.PointFloat(0F, 2F)
+			Me.table1.Name = "table1"
+			Me.table1.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() { Me.tableRow1})
+			Me.table1.SizeF = New System.Drawing.SizeF(650F, 25F)
+			' 
+			' tableRow1
+			' 
+			Me.tableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() { Me.tableCell1, Me.tableCell2})
+			Me.tableRow1.Name = "tableRow1"
+			Me.tableRow1.Weight = 1R
+			' 
+			' tableCell1
+			' 
+			Me.tableCell1.Name = "tableCell1"
+			Me.tableCell1.StyleName = "GroupCaption1"
+			Me.tableCell1.Text = "COUNTRY"
+			Me.tableCell1.Weight = 0.099467444786658657R
+			' 
+			' tableCell2
+			' 
+			Me.tableCell2.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Country]")})
+			Me.tableCell2.Name = "tableCell2"
+			Me.tableCell2.StyleName = "GroupData1"
+			Me.tableCell2.Weight = 0.90053260216346154R
+			' 
+			' table2
+			' 
+			Me.table2.LocationFloat = New DevExpress.Utils.PointFloat(0F, 0F)
+			Me.table2.Name = "table2"
+			Me.table2.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() { Me.tableRow2})
+			Me.table2.SizeF = New System.Drawing.SizeF(650F, 28F)
+			' 
+			' tableRow2
+			' 
+			Me.tableRow2.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() { Me.tableCell3, Me.tableCell4, Me.tableCell5, Me.tableCell6, Me.tableCell7, Me.tableCell8})
+			Me.tableRow2.Name = "tableRow2"
+			Me.tableRow2.Weight = 1R
+			' 
+			' tableCell3
+			' 
+			Me.tableCell3.Borders = DevExpress.XtraPrinting.BorderSide.None
+			Me.tableCell3.Name = "tableCell3"
+			Me.tableCell3.StyleName = "DetailCaption1"
+			Me.tableCell3.StylePriority.UseBorders = False
+			Me.tableCell3.Text = "Company Name"
+			Me.tableCell3.Weight = 0.22312110314002404R
+			' 
+			' tableCell4
+			' 
+			Me.tableCell4.Name = "tableCell4"
+			Me.tableCell4.StyleName = "DetailCaption1"
+			Me.tableCell4.Text = "Contact Name"
+			Me.tableCell4.Weight = 0.20194373497596155R
+			' 
+			' tableCell5
+			' 
+			Me.tableCell5.Name = "tableCell5"
+			Me.tableCell5.StyleName = "DetailCaption1"
+			Me.tableCell5.Text = "Contact Title"
+			Me.tableCell5.Weight = 0.18498198289137621R
+			' 
+			' tableCell6
+			' 
+			Me.tableCell6.Name = "tableCell6"
+			Me.tableCell6.StyleName = "DetailCaption1"
+			Me.tableCell6.Text = "Address"
+			Me.tableCell6.Weight = 0.13281962468073918R
+			' 
+			' tableCell7
+			' 
+			Me.tableCell7.Name = "tableCell7"
+			Me.tableCell7.StyleName = "DetailCaption1"
+			Me.tableCell7.Text = "City"
+			Me.tableCell7.Weight = 0.079181829599233769R
+			' 
+			' tableCell8
+			' 
+			Me.tableCell8.Name = "tableCell8"
+			Me.tableCell8.StyleName = "DetailCaption1"
+			Me.tableCell8.Text = "Postal Code"
+			Me.tableCell8.Weight = 0.17795177753155048R
+			' 
+			' table3
+			' 
+			Me.table3.LocationFloat = New DevExpress.Utils.PointFloat(0F, 0F)
+			Me.table3.Name = "table3"
+			Me.table3.OddStyleName = "DetailData3_Odd"
+			Me.table3.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() { Me.tableRow3})
+			Me.table3.SizeF = New System.Drawing.SizeF(650F, 25F)
+			' 
+			' tableRow3
+			' 
+			Me.tableRow3.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() { Me.tableCell9, Me.tableCell10, Me.tableCell11, Me.tableCell12, Me.tableCell13, Me.tableCell14})
+			Me.tableRow3.Name = "tableRow3"
+			Me.tableRow3.Weight = 11.5R
+			' 
+			' tableCell9
+			' 
+			Me.tableCell9.Borders = DevExpress.XtraPrinting.BorderSide.None
+			Me.tableCell9.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CompanyName]")})
+			Me.tableCell9.Name = "tableCell9"
+			Me.tableCell9.StyleName = "DetailData1"
+			Me.tableCell9.StylePriority.UseBorders = False
+			Me.tableCell9.Weight = 0.22312107966496395R
+			' 
+			' tableCell10
+			' 
+			Me.tableCell10.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ContactName]")})
+			Me.tableCell10.Name = "tableCell10"
+			Me.tableCell10.StyleName = "DetailData1"
+			Me.tableCell10.Weight = 0.20194373497596155R
+			' 
+			' tableCell11
+			' 
+			Me.tableCell11.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[ContactTitle]")})
+			Me.tableCell11.Name = "tableCell11"
+			Me.tableCell11.StyleName = "DetailData1"
+			Me.tableCell11.Weight = 0.18498197115384615R
+			' 
+			' tableCell12
+			' 
+			Me.tableCell12.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[Address]")})
+			Me.tableCell12.Name = "tableCell12"
+			Me.tableCell12.StyleName = "DetailData1"
+			Me.tableCell12.Weight = 0.13281961294320913R
+			' 
+			' tableCell13
+			' 
+			Me.tableCell13.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[City]")})
+			Me.tableCell13.Name = "tableCell13"
+			Me.tableCell13.StyleName = "DetailData1"
+			Me.tableCell13.Weight = 0.079181823730468753R
+			' 
+			' tableCell14
+			' 
+			Me.tableCell14.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() { New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PostalCode]")})
+			Me.tableCell14.Name = "tableCell14"
+			Me.tableCell14.StyleName = "DetailData1"
+			Me.tableCell14.Weight = 0.17795175405649039R
+			' 
+			' label2
+			' 
+			Me.label2.Borders = DevExpress.XtraPrinting.BorderSide.None
+			Me.label2.LocationFloat = New DevExpress.Utils.PointFloat(0F, 0F)
+			Me.label2.Name = "label2"
+			Me.label2.SizeF = New System.Drawing.SizeF(650F, 2.08F)
+			Me.label2.StyleName = "GroupFooterBackground3"
+			Me.label2.StylePriority.UseBorders = False
+			' 
+			' Title
+			' 
+			Me.Title.BackColor = System.Drawing.Color.Transparent
+			Me.Title.BorderColor = System.Drawing.Color.Black
+			Me.Title.Borders = DevExpress.XtraPrinting.BorderSide.None
+			Me.Title.BorderWidth = 1F
+			Me.Title.Font = New System.Drawing.Font("Arial", 14.25F)
+			Me.Title.ForeColor = System.Drawing.Color.FromArgb((CInt((CByte(75)))), (CInt((CByte(75)))), (CInt((CByte(75)))))
+			Me.Title.Name = "Title"
+			Me.Title.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F)
+			' 
+			' GroupCaption1
+			' 
+			Me.GroupCaption1.BackColor = System.Drawing.Color.FromArgb((CInt((CByte(75)))), (CInt((CByte(75)))), (CInt((CByte(75)))))
+			Me.GroupCaption1.BorderColor = System.Drawing.Color.White
+			Me.GroupCaption1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
+			Me.GroupCaption1.BorderWidth = 2F
+			Me.GroupCaption1.Font = New System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold)
+			Me.GroupCaption1.ForeColor = System.Drawing.Color.FromArgb((CInt((CByte(228)))), (CInt((CByte(228)))), (CInt((CByte(228)))))
+			Me.GroupCaption1.Name = "GroupCaption1"
+			Me.GroupCaption1.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 2, 0, 0, 100F)
+			Me.GroupCaption1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' GroupData1
+			' 
+			Me.GroupData1.BackColor = System.Drawing.Color.FromArgb((CInt((CByte(75)))), (CInt((CByte(75)))), (CInt((CByte(75)))))
+			Me.GroupData1.BorderColor = System.Drawing.Color.White
+			Me.GroupData1.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
+			Me.GroupData1.BorderWidth = 2F
+			Me.GroupData1.Font = New System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold)
+			Me.GroupData1.ForeColor = System.Drawing.Color.White
+			Me.GroupData1.Name = "GroupData1"
+			Me.GroupData1.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 2, 0, 0, 100F)
+			Me.GroupData1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' DetailCaption1
+			' 
+			Me.DetailCaption1.BackColor = System.Drawing.Color.FromArgb((CInt((CByte(75)))), (CInt((CByte(75)))), (CInt((CByte(75)))))
+			Me.DetailCaption1.BorderColor = System.Drawing.Color.White
+			Me.DetailCaption1.Borders = DevExpress.XtraPrinting.BorderSide.Left
+			Me.DetailCaption1.BorderWidth = 2F
+			Me.DetailCaption1.Font = New System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold)
+			Me.DetailCaption1.ForeColor = System.Drawing.Color.White
+			Me.DetailCaption1.Name = "DetailCaption1"
+			Me.DetailCaption1.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F)
+			Me.DetailCaption1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' DetailData1
+			' 
+			Me.DetailData1.BorderColor = System.Drawing.Color.Transparent
+			Me.DetailData1.Borders = DevExpress.XtraPrinting.BorderSide.Left
+			Me.DetailData1.BorderWidth = 2F
+			Me.DetailData1.Font = New System.Drawing.Font("Arial", 8.25F)
+			Me.DetailData1.ForeColor = System.Drawing.Color.Black
+			Me.DetailData1.Name = "DetailData1"
+			Me.DetailData1.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F)
+			Me.DetailData1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' GroupFooterBackground3
+			' 
+			Me.GroupFooterBackground3.BackColor = System.Drawing.Color.FromArgb((CInt((CByte(131)))), (CInt((CByte(131)))), (CInt((CByte(131)))))
+			Me.GroupFooterBackground3.BorderColor = System.Drawing.Color.White
+			Me.GroupFooterBackground3.Borders = DevExpress.XtraPrinting.BorderSide.Bottom
+			Me.GroupFooterBackground3.BorderWidth = 2F
+			Me.GroupFooterBackground3.Font = New System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold)
+			Me.GroupFooterBackground3.ForeColor = System.Drawing.Color.FromArgb((CInt((CByte(228)))), (CInt((CByte(228)))), (CInt((CByte(228)))))
+			Me.GroupFooterBackground3.Name = "GroupFooterBackground3"
+			Me.GroupFooterBackground3.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 2, 0, 0, 100F)
+			Me.GroupFooterBackground3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' DetailData3_Odd
+			' 
+			Me.DetailData3_Odd.BackColor = System.Drawing.Color.FromArgb((CInt((CByte(231)))), (CInt((CByte(231)))), (CInt((CByte(231)))))
+			Me.DetailData3_Odd.BorderColor = System.Drawing.Color.Transparent
+			Me.DetailData3_Odd.Borders = DevExpress.XtraPrinting.BorderSide.None
+			Me.DetailData3_Odd.BorderWidth = 1F
+			Me.DetailData3_Odd.Font = New System.Drawing.Font("Arial", 8.25F)
+			Me.DetailData3_Odd.ForeColor = System.Drawing.Color.Black
+			Me.DetailData3_Odd.Name = "DetailData3_Odd"
+			Me.DetailData3_Odd.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F)
+			Me.DetailData3_Odd.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+			' 
+			' PageInfo
+			' 
+			Me.PageInfo.Font = New System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold)
+			Me.PageInfo.ForeColor = System.Drawing.Color.FromArgb((CInt((CByte(75)))), (CInt((CByte(75)))), (CInt((CByte(75)))))
+			Me.PageInfo.Name = "PageInfo"
+			Me.PageInfo.Padding = New DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F)
+			' 
 			' TestReport
 			' 
-			Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() { Me.ReportHeader, Me.GroupHeader1, Me.Detail, Me.BottomMargin, Me.topMarginBand1})
-			Me.ComponentStorage.AddRange(New System.ComponentModel.IComponent() { Me.sqlDataSource1})
-			Me.DataMember = "ProductsByCategories"
-			Me.DataSource = Me.sqlDataSource1
+			Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() { Me.TopMargin, Me.BottomMargin, Me.ReportHeader, Me.GroupHeader1, Me.GroupHeader2, Me.Detail, Me.GroupFooter1})
+			Me.ComponentStorage.AddRange(New System.ComponentModel.IComponent() { Me.jsonDataSource1})
+			Me.DataMember = "Customers"
+			Me.DataSource = Me.jsonDataSource1
 			Me.DisplayName = "Product List"
-			Me.Margins = New System.Drawing.Printing.Margins(50, 50, 100, 85)
-			Me.PageWidth = 740
-			Me.PaperKind = System.Drawing.Printing.PaperKind.Custom
-			Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() { Me.EvenStyle, Me.OddStyle, Me.HeaderStyle2, Me.HeaderStyle1})
-			Me.StyleSheetPath = ""
-			Me.Version = "19.2"
-			DirectCast(Me.xrTable2, System.ComponentModel.ISupportInitialize).EndInit()
-			DirectCast(Me.xrTable1, System.ComponentModel.ISupportInitialize).EndInit()
+			Me.Font = New System.Drawing.Font("Arial", 9.75F)
+			Me.StyleSheet.AddRange(New DevExpress.XtraReports.UI.XRControlStyle() { Me.Title, Me.GroupCaption1, Me.GroupData1, Me.DetailCaption1, Me.DetailData1, Me.GroupFooterBackground3, Me.DetailData3_Odd, Me.PageInfo})
+			Me.Version = "21.2"
+			DirectCast(Me.table1, System.ComponentModel.ISupportInitialize).EndInit()
+			DirectCast(Me.table2, System.ComponentModel.ISupportInitialize).EndInit()
+			DirectCast(Me.table3, System.ComponentModel.ISupportInitialize).EndInit()
 			DirectCast(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
 	End Sub

@@ -1,0 +1,7 @@
+{"version": "21.2.3",
+"date": "11/10/2021",
+"themeId": "1",
+"hue": null,
+"items": [{"key":"@base-bg","value":"#ececf9"},
+{"key":"@base-border-color","value":"#b3b3e6"},
+{"key":"@base-accent","value":"#8080ff"}]}
