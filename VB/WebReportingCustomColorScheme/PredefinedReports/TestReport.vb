@@ -537,7 +537,7 @@ Public Class TestReport
 
 	#End Region
 
-	Private Sub tableCell4_BeforePrint(ByVal sender As Object, ByVal e As System.Drawing.Printing.PrintEventArgs)
+	Private Sub tableCell4_BeforePrint(ByVal sender As Object, ByVal e As System.ComponentModel.CancelEventArgs)
 		TryCast(sender, XRTableCell).Text &= " Customized"
 	End Sub
 
