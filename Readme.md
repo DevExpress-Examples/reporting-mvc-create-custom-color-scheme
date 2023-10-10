@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
+# Reporting for ASp.NET MVC - How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
 
 This example demonstrates how to create a custom color scheme for the [Web Document Viewer](https://docs.devexpress.com/XtraReports/17738) and [End-User Report Designer](https://docs.devexpress.com/XtraReports/17103). The custom color scheme is based on the "_light_" predefined color scheme.
 
