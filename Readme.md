@@ -3,14 +3,6 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T830434)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
-* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml)
-* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml)
-* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml)
-* [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
-* [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
-<!-- default file list end -->
 
 # How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
 
@@ -34,7 +26,16 @@ The demo produces custom styles in two files - _devextreme.light.custom.css_ and
 
 Specify the base color scheme with the [GetStyleSheets](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.UI.ExtensionsFactory.GetStyleSheets.overloads) method and link the reporting and DevExtreme CSS files to the Document Viewer and Report Designer pages.
 
-**See also:**
+## Files to Review
+
+* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml)
+* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml)
+* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml)
+* [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
+* [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
+
+
+## Documentation
 
 * [ASP.NET Webforms Documentation](https://docs.devexpress.com/XtraReports/116672)
 * [ASP.NET MVC Documentation](https://docs.devexpress.com/XtraReports/400235)
