@@ -4,7 +4,16 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# Reporting for ASP.NET MVC - How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
+<!-- default file list -->
+*Files to look at*:
+* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml)
+* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml)
+* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml)
+* [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
+* [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
+<!-- default file list end -->
+
+# How to Create a Custom Color Scheme for Web Report Designer and Document Viewer
 
 This example demonstrates how to create a custom color scheme for the [Web Document Viewer](https://docs.devexpress.com/XtraReports/17738) and [End-User Report Designer](https://docs.devexpress.com/XtraReports/17103). The custom color scheme is based on the "_light_" predefined color scheme.
 
@@ -26,18 +35,8 @@ The demo produces custom styles in two files - _devextreme.light.custom.css_ and
 
 Specify the base color scheme with the [GetStyleSheets](https://docs.devexpress.com/AspNet/DevExpress.Web.Mvc.UI.ExtensionsFactory.GetStyleSheets.overloads) method and link the reporting and DevExtreme CSS files to the Document Viewer and Report Designer pages.
 
-## Files to Review
-
-* [_Layout.cshtml](./CS/WebReportingCustomColorScheme/Views/Shared/_Layout.cshtml)
-* [Viewer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Viewer.cshtml)
-* [Designer.cshtml](./CS/WebReportingCustomColorScheme/Views/Home/Designer.cshtml)
-* [devextreme.light.custom.css](/CS/WebReportingCustomColorScheme/Content/devextreme.light.custom.css)
-* [reporting.light.custom.css](/CS/WebReportingCustomColorScheme/Content/reporting.light.custom.css)
-
-
-## Documentation
+**See also:**
 
 * [ASP.NET Webforms Documentation](https://docs.devexpress.com/XtraReports/116672)
 * [ASP.NET MVC Documentation](https://docs.devexpress.com/XtraReports/400235)
 * [ASP.NET Core Documentation](https://docs.devexpress.com/XtraReports/400413)
-
