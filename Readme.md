@@ -40,7 +40,7 @@ Specify the base color scheme with the [GetStyleSheets](https://docs.devexpress.
 * [ASP.NET MVC Documentation](https://docs.devexpress.com/XtraReports/400235)
 * [ASP.NET Core Documentation](https://docs.devexpress.com/XtraReports/400413)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=reporting-mvc-create-custom-color-scheme&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=reporting-mvc-create-custom-color-scheme&~~~was_helpful=no)
 
